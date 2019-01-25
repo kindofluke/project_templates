@@ -1,0 +1,23 @@
+version: '3'
+services:
+  notebook:
+    image: kindofluke/python-jupyter-lab-docker
+    environment:
+      PGPASSWORD: ${PGPASSWORD}
+    command: sh -c "pip install -r /code/requirements.txt; jupyter notebook --ip=0.0.0.0 --no-browser --notebook-dir=/code  --NotebookApp.token='' --allow-root"
+    ports:
+    - "8888:8888"
+    volumes:
+    - .:/code
+  db: 
+    environment:
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+  pgloader:
+    image: "pgloader"
+    environment:
+      PGPASSWORD: ${PGPASSWORD}
+    volumes:
+      - .:/src

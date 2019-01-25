@@ -1,0 +1,11 @@
+deps
+notebooks
+lookup_files
+output
+olddbs
+data
+*.db
+*.json
+*.csv
+venv
+db
