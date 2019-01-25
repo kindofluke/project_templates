@@ -16,7 +16,7 @@ services:
     ports:
       - "5432:5432"
   pgloader:
-    image: "pgloader"
+    image: "kindofluke/docker-pgloader:latest"
     environment:
       PGPASSWORD: ${PGPASSWORD}
     volumes:
