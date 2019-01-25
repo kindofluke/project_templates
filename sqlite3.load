@@ -1,6 +1,6 @@
 load database
-     from sqlite://some-database-on-host.db
-     into postgresql://postgres:{{PGPASSWORD}}@localhost:5432/some-database
+     from sqlite:////src/output/nhpri-analysis.db
+     into postgresql://postgres@db:5432/nhpri
 
  with include drop, create tables, create indexes, reset sequences
  CAST type num to numeric;
